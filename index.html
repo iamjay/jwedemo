@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>node-jose demo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body> 
+        <p>
+            Eikon public key:<br />
+            <textarea id="eikonPublicKey" cols="70" rows="10" readonly>
+-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4E0UWSdHNhFFggPcXf4Q
+3X3ozCB4co9h4FrfaGPWCAiEwBUPYHUzumJnE1nXQiXmtZYvBYbaN/FC0ck2+igf
+Rq4+No4DZXw41p/GBzOz2avTc5vqHbsdpGr49VL1kAVjlQLw+QqzmgVbwAPIn+Rf
+LNE/1GE+vispFUjsuaGSUr34b9jRvqdKIzP1EmyBLHCBM7sR3x1Hfzi6sH/DI80d
+ZuUMXSZyYXDQRXr4P8VwXhxwtXm5Ig6VOoiN3hxahxbo5tkezZmeodueZ/Ad1MTs
+svU9U0GLi6b0JHxxce6mRRX5IdjJF25ZGOu77a4Dq9cBpRQI1sU8WiprGZnI8zqa
+BQIDAQAB
+-----END PUBLIC KEY-----
+            </textarea>
+        </p>
+        <p>
+            Key length: <select id="keylength">
+                <option value="1024">1024</option>
+                <option value="2048" selected>2048</option>
+            </select>
+            <button id="generateKey" onclick="generateKey()">Generate an app key</button>
+        </p>
+        <p>
+            <textarea id="privateKey" cols="70" rows="20" readonly></textarea>
+            <textarea id="publicKey" cols="70" rows="20" readonly></textarea>
+        </p>
+        <p>
+            App payload to Eikon:
+            <button id="encrypt" onclick="encryptToEikon()">Encrypt</button>
+            <br />
+            <textarea id="payloadToEikon" cols="80" rows="20"></textarea>
+        </p>
+        <p>
+            Encrypted payload from Eikon:
+            <button id="encrypt" onclick="encryptFromEikon()">Encrypt</button>
+            <button id="decrypt" onclick="decrypt()">Decrypt</button>
+            <br />
+            <textarea id="payloadFromEikon" cols="80" rows="20"></textarea>
+        </p>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="node-jose.min.js"></script>
+        <script src="demo.js"></script>
+    </body>
+</html>
